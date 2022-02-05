@@ -15,10 +15,13 @@ def get_list_of_len_five_words(file_name):
             base_word = remove_diacritics(stripped_word)
             if not base_word.isalpha():
                 continue
+            base_word = base_word.lower()
             print(base_word)
             five_letter_bucket.append(base_word)
-    print(f'{len(five_letter_bucket)} valid 5-letter words in dictionary')
-    return five_letter_bucket
+    unique = list(set(five_letter_bucket))
+    print(f'{len(unique)} valid 5-letter words in dictionary')
+    unique.sort()
+    return unique
 
 
 def save_list_to_file(filename, my_list):
@@ -33,6 +36,5 @@ if __name__ == '__main__':
     generates a dataset ('palabras_de_cinco_letras.txt') with unique valid 5-letter spanish dictionary words
     """
     five_len_bucket = get_list_of_len_five_words('0_palabras_todas.txt')
-    de_duped_bucket = list(set(five_len_bucket))
-    print(f'{len(de_duped_bucket)} unique 5-letter words')
-    save_list_to_file('palabras_de_cinco_letras.txt', de_duped_bucket)
+    print(f'{len(five_len_bucket)} unique 5-letter words')
+    save_list_to_file('palabras_de_cinco_letras.txt', five_len_bucket)
