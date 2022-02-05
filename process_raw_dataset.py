@@ -1,4 +1,4 @@
-from utils import remove_diacritics as remove_diacritics
+from utils import remove_diacritics as remove_diacritics, save_list_to_file
 
 
 def get_list_of_len_five_words(file_name):
@@ -22,13 +22,6 @@ def get_list_of_len_five_words(file_name):
     print(f'{len(unique)} valid 5-letter words in dictionary')
     unique.sort()
     return unique
-
-
-def save_list_to_file(filename, my_list):
-    with open(filename, 'w', encoding='utf8') as f_out:
-        for line in my_list:
-            f_out.write(f'{line}\n')
-    print(f'{len(my_list)} lines written to file')
 
 
 if __name__ == '__main__':

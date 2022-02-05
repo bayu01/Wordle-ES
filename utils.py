@@ -11,3 +11,10 @@ def remove_diacritics(text):
         normalize("NFD", text), 0, re.I
     )
     return normalize('NFC', denormalized)
+
+
+def save_list_to_file(filename, my_list):
+    with open(filename, 'w', encoding='utf8') as f_out:
+        for line in my_list:
+            f_out.write(f'{line}\n')
+    print(f'{len(my_list)} lines written to {filename}')
