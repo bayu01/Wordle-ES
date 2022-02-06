@@ -1,9 +1,7 @@
 import numpy as np
 
-from generate_statistics import char_2d_array
 
-
-def get_letter_weights():
+def get_letter_weights(char_2d_array):
     unique, counts = np.unique(char_2d_array, return_counts=True)
     assert len(unique) == len(counts)
     letter_freq = dict(zip(unique, counts))
