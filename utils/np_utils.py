@@ -12,4 +12,4 @@ def get_letter_weights(char_2d_array):
     sorted_lttrs = sorted(letters_wt_values.items(), key=lambda e: e[1], reverse=True)
     five_lttr_stats = ''.join([f'{k}: {100 * v:.2f}%\n' for k, v in sorted_lttrs[0:5]])
     print(f'The five most common letters and their percentage are:\n{five_lttr_stats}')
-    return sorted_lttrs
+    return letters_wt_values
